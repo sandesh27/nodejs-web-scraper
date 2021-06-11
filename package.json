@@ -1,0 +1,22 @@
+{
+  "name": "nodejswebscrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.9",
+    "dotenv": "^10.0.0",
+    "html-table-to-json": "^1.0.0",
+    "nodejs-web-scraper": "^6.0.0",
+    "tabletojson": "^2.0.6",
+    "tunnel": "0.0.6"
+  }
+}
