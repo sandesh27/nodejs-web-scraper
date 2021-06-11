@@ -11,11 +11,11 @@ dotenv.config()
 
 const myAxiosInstance = axios.create();
 
-const proxy11Url = `https://proxy11.com/api/proxy.json?key=${process.env.PROXY11_API_KEY}`;
+const proxy11Url = `${process.env.PROXY11_BASE_URL}/api/proxy.json?key=${process.env.PROXY11_API_KEY}`;
 
-const proxyUrl = `http://api.scraperapi.com?api_key=${process.env.SCRAPER_API_KEY}&url=`;
+const proxyUrl = `${process.env.SCRAPER_API_URL}?api_key=${process.env.SCRAPER_API_KEY}&url=`;
 
-const freeProxyListUrl = `${ process.env.PROXYLIST_URL }` //'https://free-proxy-list.net/';
+const freeProxyListUrl = `${ process.env.PROXYLIST_URL }`
 
 const freeProxyListDotNet = async () => {
   try {
@@ -89,13 +89,12 @@ const getAgent = async () => {
 };
 
 const getData = async () => {
-  try {
-    // const listItem = '.results-list [data-stid="property-listing"]';
-    const requestURL = `${process.env.EXP_BASE_URL}?cache_buster=${ Date.now()}`; //https://www.expedia.com/Hotel-Search
-    const listItem = `${process.env.EXP_LIST_ITEM}`;//'.results-list [data-stid="property-listing"]'
-    const name = `${process.env.EXP_NAME}`;//'[data-stid="content-hotel-title"]';
-    const price = `${process.env.EXP_PRICE}`;// '[data-stid="content-hotel-price"] [data-stid="price-lockup-text"]'
-    const rating = `${process.env.EXP_RATING}`;// '[data-stid="content-hotel-reviews-rating"]'
+  try {    
+    const requestURL = `${process.env.EXP_BASE_URL}?cache_buster=${ Date.now()}`;
+    const listItem = `${process.env.EXP_LIST_ITEM}`;
+    const name = `${process.env.EXP_NAME}`;
+    const price = `${process.env.EXP_PRICE}`;
+    const rating = `${process.env.EXP_RATING}`;
 
     // const httpsAgent = new https.Agent({ keepAlive: true });
 
@@ -111,10 +110,10 @@ const getData = async () => {
       d2: '2021-06-17'
     };
 
-    const agent = await getAgent();
+    // const agent = await getAgent();
 
     const axiosConfig = {
-      agent,
+      // agent,
       responseType: 'document',
       params: queryStringObject
     };
